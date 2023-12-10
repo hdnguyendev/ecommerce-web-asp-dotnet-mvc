@@ -1,0 +1,155 @@
+﻿.main {
+    margin-bottom: 30px;
+}
+
+.cart-section {
+    margin: 50px auto;
+    text-align: center;
+}
+
+.cart-title h1 {
+    position: relative;
+    padding: 10px;
+    display: inline-block;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+    .cart-title h1::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 2px;
+        width: 30%;
+        background-color: tomato;
+    }
+
+.cart-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+}
+
+.cart-table-head,
+.cart-right {
+    position: sticky;
+    top: 0;
+}
+
+.cart-info table.table-cart {
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.cart-table {
+    flex-basis: 50%;
+   
+}
+
+.total-table {
+    width: 100%;
+}
+
+.coupon-table {
+    width: 100%;
+}
+
+th {
+    padding: 15px;
+    font-weight: bold;
+    text-align: center;
+    background-color: tomato;
+    color: white;
+}
+
+.table-total-row th:first-of-type {
+    min-width: 250px;
+}
+
+.table-body-row .product-remove a {
+    font-size: 2rem;
+    color: tomato;
+}
+
+.table-body-row .product-image img {
+    max-width: 100px;
+}
+
+.table-body-row td.product-quantity input {
+    margin-bottom: 0;
+}
+.product-quantity {
+    max-width: 100px;
+}
+input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+}
+input.input-coupon {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    flex-grow: 1;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+td {
+    padding: 10px;
+}
+
+    td.product-image,
+    td.product-remove {
+        text-align: center;
+    }
+
+    td.product-coupon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+.total-table td.product-price {
+        text-align: right;
+    }
+
+.form-delete-cart input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    background-color: tomato;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+    
+}
+.form-delete-cart input[type="submit"]:hover {
+    background-color: #051922;
+    color: tomato;
+    scale: 1.05;
+}
+.group-btn a {
+    text-decoration: none;
+}
+button.btn {
+    border: unset;
+    outline: unset;
+    background-color: tomato;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    transition: 0.3s;
+    min-width: 100px;
+    margin: 10px 0px 10px 10px;
+    cursor: pointer;
+}
+
+    button.btn:hover {
+        background-color: #051922;
+        color: tomato;
+    }

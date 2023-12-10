@@ -1,0 +1,43 @@
+﻿@model IEnumerable<WebEcommerce.Models.Category>
+@section Styles {
+    <link rel="stylesheet" href="~/css/indexAdmin.css">
+}
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container">
+    <h1>Category Management</h1>
+    <a asp-action="Create">
+        <i class="fa-solid fa-plus"></i>
+        Create new Category
+    </a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CategoryId)
+                </th><th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CategoryId)
+                    </td><td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <a class="btn btn-edit" asp-action="Edit" asp-route-id="@item.CategoryId">Edit</a>
+                        <a class="btn btn-delete" asp-action="Delete" asp-route-id="@item.CategoryId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

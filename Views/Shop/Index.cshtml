@@ -1,0 +1,62 @@
+﻿@model WebEcommerce.ViewModels.ProductViewModel
+@{
+    ViewData["Title"] = "Shop";
+}
+@{
+    var customerId = 1;
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/shop.css">
+}
+ <div class="main">
+      <div class="product-section">
+        <div class="product-title">
+          <h1><span class="isMain">Our</span> Products</h1>
+          <p>Sản phẩm của chúng tôi siêu cấp vip pro!</p>
+        </div>
+        <!-- Control buttons -->
+        <div id="myBtnContainer">
+          <button class="btn active" onclick="filterSelection('all')">
+            Show all
+          </button>
+            @foreach (var category in @Model.Categories)
+            {              
+                <button class="btn" onclick="filterSelection('@category.Name')">@category.Name</button>
+            }
+          
+        
+        </div>
+        <div class="product-list">
+            @foreach (var product in @Model.Products)
+            {
+                <div class="product-item @product.Category?.Name">
+                    <div class="item-image">
+                        <a href="">
+                            <img src="~/img/@product.Image" alt="" srcset="" />
+                        </a>
+                    </div>
+                    <h3 class="item-title">@product.Name</h3>
+                    <div class="item-price">
+                        <span>Per Kg</span>
+                        @product.Price$
+                    </div>
+
+
+                    @Html.AntiForgeryToken()
+                    <a class="item-btn" data-customer-id="@customerId" data-product-id="@product.ProductId"><i class="fas fa-shopping-cart"></i> Add to cart</a>
+                   
+                </div>
+            }
+         
+         
+         
+        </div>
+        <div id="noProduct" style="display: none;">Hiện tại sản phẩm này tạm hết hàng. Mong quý khách thông cảm!</div> 
+      </div>
+    </div>
+
+
+
+@section Scripts {
+    <script src="~/js/shop.js"></script> 
+}

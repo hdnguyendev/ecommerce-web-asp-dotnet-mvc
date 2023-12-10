@@ -1,0 +1,51 @@
+﻿.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container h1 {
+    margin-top: 20px;
+}
+.container > a {
+    text-decoration: none;
+    padding: 10px 20px;
+    color: white;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: green;
+}
+    .container .table {
+        box-shadow: 0 0 10px rgba(0,0,0,0.4);
+        margin-top: 20px;
+        margin-bottom: 200px;
+    }
+
+        .container .table thead tr th {
+            text-align: center;
+            padding: 10px 20px;
+            background-color: tomato;
+            color: white;
+        }
+
+        .container .table tbody tr td {
+            padding: 10px 20px;
+        }
+
+
+a.btn {
+    text-decoration: none;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+}
+.btn-edit {
+    background-color: cornflowerblue;
+}
+.btn-detail {
+    background-color: lightseagreen;
+}
+.btn-delete {
+    background-color: tomato;
+}

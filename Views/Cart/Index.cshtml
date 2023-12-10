@@ -1,0 +1,146 @@
+﻿@model WebEcommerce.ViewModels.CartViewModel
+@{
+    ViewData["Title"] = "Cart";
+}
+
+@{
+    var ship = (decimal) 0.0;
+    var discount = (decimal) 0.0;
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/cart.css">
+}
+
+<!-- MAIN CONTENT -->
+<div class="main">
+    <div class="cart-section">
+        <div class="cart-title">
+            <h1><span class="isMain">Your</span> Cart</h1>
+            <p>Sản phẩm của chúng tôi siêu cấp vip pro!</p>
+        </div>
+    </div>
+    <div class="cart-info">
+        <table class="table-cart cart-table">
+            <thead class="cart-table-head">
+                <tr class="table-head-row">
+                    <th class="product-image">Product Image</th>
+                    <th class="product-name">Name</th>
+                    <th class="product-price">Price</th>
+                    <th class="product-quantity">Quantity</th>
+                    <th class="product-total">Total</th>
+                    <th class="product-remove">Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var subtotal = (decimal) 0.0;
+                }
+                @foreach (var cart in @Model.Carts)
+                {
+                    var result = cart.Product?.Price * cart.Quantity;
+                    if (result != null)
+                    {
+                        subtotal += result.Value;
+                    }
+                    {
+                        <tr class="table-body-row">
+                            <td class="product-image">
+                                <a href="">
+                                    <img src="~/img/@cart.Product?.Image" alt="" />
+                                </a>
+                            </td>
+                            <td class="product-name">@cart.Product?.Name</td>
+                            <td class="product-price">$@cart.Product?.Price</td>
+                            <td class="product-quantity">
+                                <input type="number" placeholder="0" value="@cart.Quantity" />
+                            </td>
+                            <td class="product-total">
+                                $@result
+                            </td>
+                            <td class="product-remove">
+                                <form class="form-delete-cart" asp-action="Delete" asp-controller="Carts">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="id" value="@cart.CartId" />
+                                    <input type="submit" value="Delete" class="btn btn-danger"/> 
+                                </form>
+                            </td>
+                        </tr>
+                    }
+
+                }
+
+
+            </tbody>
+        </table>
+        <div class="cart-right">
+            <div class="coupon">
+                <table class="table-cart coupon-table">
+                    <thead class="coupon-table-head">
+                        <tr class="table-coupon-row">
+                            <th class="product-coupon">Apply Coupon</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-body-row">
+                            <td class="product-coupon">
+                                <input class="input-coupon"type="text" placeholder="Coupon" />
+                                <a href="">
+                                    <button class="btn">
+                                        <i class="fa-solid fa-check"></i> Apply
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <table class="table-cart total-table">
+                <thead class="total-table-head">
+                    <tr class="table-total-row">
+                        <th class="product-total">Total</th>
+                        <th class="product-price">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-body-row">
+                        <td class="product-total">Subtotal</td>
+                        <td class="product-price">$@subtotal</td>
+                    </tr>
+                    <tr class="table-body-row">
+                        <td class="product-total">Shipping</td>
+                        <td class="product-price">$@ship</td>
+                    </tr>
+                    <tr class="table-body-row">
+                        <td class="product-total">Discount</td>
+                        <td class="product-price">$@discount</td>
+                    </tr>
+                    @{
+                        var total = subtotal + ship - discount;
+                    }
+                    <tr class="table-body-row">
+                        <td class="product-total">Total</td>
+                        <td class="product-price">$@total</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="group-btn">
+                <a href="">
+                    <button class="btn update">
+                        <i class="fa-solid fa-arrows-rotate"></i> Update Cart
+                    </button>
+                </a>
+                <a href="../Checkout/checkout.html">
+                    <button class="btn checkout">
+                        <i class="fa-regular fa-credit-card"></i> Check Out
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="~/js/cart.js"></script>
+    
+}

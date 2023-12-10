@@ -1,0 +1,114 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.hide {
+    display: none !important;
+}
+
+.isMain {
+    color: tomato !important;
+}
+
+footer {
+    width: 100%;
+    background-color: #051922;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header {
+    position: relative;
+    height: 100px;
+    z-index: 10;
+}
+
+.menu {
+    position: fixed;
+    background-color: #051922;
+    padding: 25px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.menu__logo {
+    padding: 6px 0;
+    max-width: 150px;
+}
+
+    .menu__logo img {
+        vertical-align: middle;
+        max-width: 100%;
+    }
+
+.menu__nav ul {
+    list-style: none;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+    .menu__nav ul li {
+        display: inline-block;
+    }
+
+        .menu__nav ul li a {
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            transition: 0.25s;
+        }
+
+            .menu__nav ul li a:hover {
+                color: tomato;
+            }
+
+.menu__user {
+    color: white;
+    display: flex;
+}
+
+    .menu__user a {
+        color: white;
+        padding: 10px;
+        transition: 0.25s;
+    }
+
+        .menu__user a:hover {
+            color: tomato;
+        }
+
+.menu__guest {
+    display: flex;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+    .menu__guest a {
+        text-decoration: none;
+        padding: 10px;
+        transition: 0.25s;
+    }
+
+        .menu__guest a:hover {
+            color: tomato;
+        }
+
+
+

@@ -1,0 +1,52 @@
+﻿@model WebEcommerce.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="container">
+<h1>Details</h1>
+
+    <h4>Product</h4>
+    <hr />
+        <dt >
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd >
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt >
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd >
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt >
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd >
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+        <dt >
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd >
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt >
+            @Html.DisplayNameFor(model => model.Stock)
+        </dt>
+        <dd >
+            @Html.DisplayFor(model => model.Stock)
+        </dd>
+        <dt >
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd >
+            @Html.DisplayFor(model => model.Category.CategoryId)
+        </dd>
+    </dl>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ProductId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+</div>
