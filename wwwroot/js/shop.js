@@ -55,6 +55,7 @@ for (var i = 0; i < btns.length; i++) {
         this.className += " active";
     });
 }
+
 $(document).ready(function () {
     $('a.item-btn').click(function (e) {
         e.preventDefault();
@@ -68,6 +69,7 @@ $(document).ready(function () {
             mode: 'cors',
             data: {
                 Quantity: 1, // Giá trị của Quantity nếu cần
+
                 CustomerId: customerId,
                 ProductId: productId
             },
