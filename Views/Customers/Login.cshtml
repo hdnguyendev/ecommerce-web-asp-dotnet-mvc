@@ -1,0 +1,28 @@
+﻿@model WebEcommerce.Models.Customer
+@section Styles {
+    <link rel="stylesheet" href="~/css/login.css">
+}
+@{
+    ViewData["Title"] = "Login";
+}
+
+
+<div class="container">
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    
+    <form asp-action="Login" method="POST">
+        <h3>Login Here</h3>
+        <label class="alert">
+            @Html.ValidationSummary()
+        </label>
+        <label asp-for="Email" for="username">Username</label>
+        <input asp-for="Email" type="email" placeholder="Email or Phone" id="username" required>
+        <label asp-for="Password" for="password">Password</label>
+        <input asp-for ="Password" type="password" placeholder="Password" id="password" required>
+       
+        <button type="submit">Log In</button>
+    </form>
+</div>

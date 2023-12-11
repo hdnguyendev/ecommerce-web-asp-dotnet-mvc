@@ -1,4 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@{
+    var customerId = Context.Session.GetString("CustomerId");
+    var customerEmail = Context.Session.GetString("CustomerEmail");
+
+
+    ViewBag.customerId = customerId;
+}
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -30,17 +39,28 @@
             </div>
 
             <div class="menu__user">
-                <div class="menu__guest hide">
-                    <a class="menu__user--login" href="">Login</a>
-                    <a class="menu__user--register" href="">Register</a>
-                </div>
-                <a class="menu__user--cart" asp-area="" asp-controller="Cart" asp-action="Index">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </a>
-                <a class="menu__user--profile" href="#">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </a>
+                
+                @if (!string.IsNullOrEmpty(customerId))
+                {
+                    <div class="menu__logout">
+                        <a asp-area="" asp-controller="Customers" asp-action="Logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+                        <div class="menu__email"> @customerEmail</div>
+                    </div>
+                    <a class="menu__user--cart" asp-area="" asp-controller="Cart" asp-action="Index">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                    <a class="menu__user--profile" href="#">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                } else
+                {
+                    <div class="menu__guest ">
+                        <a class="menu__user--login" href="/Customers/Login">Login</a>
+                        <a class="menu__user--register" href="">Register</a>
+                    </div>
+                }
             </div>
+
         </div>
     </header>
 
@@ -51,6 +71,11 @@
 
     <!-- FOOTER -->
     <footer>
+        <a href="/Products">Product </a>
+        <a href="/Carts">Cart </a>
+        <a href="/Customers">Customer </a>
+        <a href="/Categories">Category </a>
+
         <div>
             <a href="">
                 <img src="~/img/logo.png" alt="" />
@@ -58,11 +83,7 @@
         </div>
 
         <div>Copyrights © 2023 - Le Thi Binh An, Duy Tan University</div>
-        <a href="/Products">Product </a>
-        <a href="/Carts">Cart </a>
-        <a href="/Customers">Customer </a>
-        <a href="/Categories">Category </a>
-              
+     
         </div>
     </footer>
 

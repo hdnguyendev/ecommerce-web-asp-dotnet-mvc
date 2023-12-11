@@ -92,6 +92,8 @@ header {
 .menu__user {
     color: white;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
     .menu__user a {
@@ -120,5 +122,16 @@ header {
             color: tomato;
         }
 
-
-
+.menu__logout {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    cursor: pointer;
+}
+    .menu__logout i {
+        margin-right: 10px;
+        font-size: 1.1rem;
+    }
+    .menu__logout i:hover {
+        color: tomato;
+    }

@@ -69,7 +69,6 @@ $(document).ready(function () {
             mode: 'cors',
             data: {
                 Quantity: 1, // Giá trị của Quantity nếu cần
-
                 CustomerId: customerId,
                 ProductId: productId
             },

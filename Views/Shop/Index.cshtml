@@ -2,9 +2,7 @@
 @{
     ViewData["Title"] = "Shop";
 }
-@{
-    var customerId = 1;
-}
+
 @section Styles {
     <link rel="stylesheet" href="~/css/shop.css">
 }
@@ -47,7 +45,7 @@
 
 
                     @Html.AntiForgeryToken()
-                    <a class="item-btn" data-customer-id="@customerId" data-product-id="@product.ProductId"><i class="fas fa-shopping-cart"></i> Add to cart</a>
+                    <a class="item-btn" data-customer-id="@Model.CustomerId" data-product-id="@product.ProductId"><i class="fas fa-shopping-cart"></i> Add to cart</a>
                    
                 </div>
             }

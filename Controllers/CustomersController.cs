@@ -19,6 +19,41 @@ namespace WebEcommerce.Controllers
             _context = context;
         }
 
+        // GET: Customers/Login
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        // POST: Customers/Login
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(string email, string password)
+        {
+            // Kiểm tra thông tin đăng nhập
+            var customer = await _context.Customer.FirstOrDefaultAsync(c => c.Email == email && c.Password == password);
+            if (customer == null)
+            {
+                // Thông tin đăng nhập không hợp lệ, hiển thị thông báo lỗi
+                ModelState.AddModelError(string.Empty, "Invalid login credentials");
+                return View();
+            }
+
+            // Lưu thông tin người dùng đã đăng nhập vào session
+            HttpContext.Session.SetString("CustomerId", customer.CustomerId.ToString());
+            HttpContext.Session.SetString("CustomerEmail", customer.Email.ToString());
+
+            // Điều hướng tới action hoặc trang chính sau khi đăng nhập thành công
+            return RedirectToAction("Index", "Home");
+        }
+        // GET: Customers/Logout
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+
+            return RedirectToAction("Index", "Home"); 
+        }
+
         // GET: Customers
         public async Task<IActionResult> Index()
         {

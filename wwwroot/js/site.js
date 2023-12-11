@@ -10,4 +10,9 @@
         $('.menu__nav ul li a').removeClass('isMain');
         $('.menu__user a.menu__user--cart').addClass('isMain');
     }
+
 });
+
+
+
+

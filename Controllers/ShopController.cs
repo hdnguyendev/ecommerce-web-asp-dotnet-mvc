@@ -14,11 +14,12 @@ namespace WebEcommerce.Controllers
         {
             List<Product> products = [.. _dbContext.Product];
             List<Category> categories = [.. _dbContext.Category];
-
+            String customerId = HttpContext.Session.GetString("CustomerId");
             ProductViewModel viewModel = new ProductViewModel
             {
                 Products = products,
-                Categories = categories
+                Categories = categories,
+                CustomerId = customerId
             };
 
             return View(viewModel);
